@@ -28,15 +28,16 @@ class TestGetData(unittest.TestCase):
         self.assertEqual(result, expected_out)
         result = get_data.get_data('https://data.seatsadasdtle.gov/')
         self.assertEqual(result, expected_out)
+
     #test for when file is not present locally but exists in the web
     def test_NotPresent(self):
         expected_out = 'File downloaded.'
         #must make sure to remove the file first before testing for correctness on file download
         remove_data.remove_data('https://data.seattle.gov/resource/4xy5-26gy.csv')
         result = get_data.get_data('https://data.seattle.gov/resource/4xy5-26gy.csv')
-        #import pdb; pdb.set_trace()
         self.assertEqual(result, expected_out)
 
+    #test to see if the data was succesfully removed
     def test_RemoveData(self):
         expected_out = 'File removed.'
         #make sure file is present before testing the remove
